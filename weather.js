@@ -5,6 +5,7 @@ const weatherCondition = document.querySelector('.weathercondition');
 const temperature = document.querySelector('.temperature');
 const minMaxTemp = document.querySelector('.minmaxtemp')
 
+console.log(inputCity);
 const getWeatherData = () => {
     let city = inputCity.value;
     console.log(city);
