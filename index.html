@@ -5,16 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Data</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <div class="container">
-        <input type="text" class="inputcity">
-        <button class="getdata">Get Data</button>
+        <h1 class="title">Weather App</h1>
+        <p class="weaterappdescription">This is a simple weather app that show you current weather codition of required city.</p>
+        <div class="div">
+            <input type="text" class="inputcity" placeholder="Enter City Name Here">
+            <button class="getdata">Get Data</button>
+        </div>
         <div class="data">
-            <h1 class="cityname"></h1>
+            <p class="cityname"></p>
             <p class="weathercondition"></p>
-            <p class="temperature"></p>
+            <h1 class="temperature"></h1>
             <p class="minmaxtemp"></p>
         </div>
     </div>

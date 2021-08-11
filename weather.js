@@ -23,7 +23,7 @@ const getWeatherData = () => {
         cityName.innerHTML = place;
         weatherCondition.innerText = placeWeatherCondition;
         tempInCelcius = (parseInt(placeTemp) - 273.15);
-        temperature.innerHTML = `${tempInCelcius}deg Celcius`
+        temperature.innerHTML = `${tempInCelcius.toFixed(2)}`
         minMaxTemp.innerHTML = `${placeMinTemp}/${placeMaxTemp}.`
     })
     .catch(error => {
