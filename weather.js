@@ -5,6 +5,8 @@ const weatherCondition = document.querySelector('.weathercondition');
 const temperature = document.querySelector('.temperature');
 const minMaxTemp = document.querySelector('.minmaxtemp')
 const updateTime = document.querySelector('.time');
+const updateLocation = document.querySelector('.location');
+const greeting = document.querySelector('.greeting');
 
 
 const getWeatherData = () => {
@@ -26,7 +28,8 @@ const getWeatherData = () => {
         weatherCondition.innerText = placeWeatherCondition;
         tempInCelcius = (parseInt(placeTemp) - 273.15);
         temperature.innerHTML = `${tempInCelcius.toFixed(2)}`
-        minMaxTemp.innerHTML = `${placeMinTemp}/${placeMaxTemp}.`
+        minMaxTemp.innerHTML = `${placeMinTemp}/${placeMaxTemp}.`;
+        updateLocationOnClick(place);
     })
     .catch(error => {
         console.log('Error occured', error);
@@ -36,9 +39,9 @@ const getWeatherData = () => {
 
 getDataBtn.addEventListener('click', getWeatherData);
 
+let hours, min;
 
 function getCurrentTime() {
-    let hours, min;
     let date = new Date();
     hours = date.getHours();
     min = date.getMinutes();
@@ -50,7 +53,23 @@ function getCurrentTime() {
         min = '0' + date.getMinutes();
     }
 
-    updateTime.innerText = `${hours}:${min}`
+    updateTime.innerText = `${hours}:${min}`;
 }
 
 setInterval(getCurrentTime, 1000);
+updateGreetingMessage(hours);
+
+
+function updateGreetingMessage(hour) {
+    if (hour > 5 || hour < 12) {
+        greeting.innerText = 'Good Morning';
+    } else if (hour > 12 || hour < 10) {
+        greeting.innerText = 'Good Evening';
+    } else {
+        greeting.innerText = 'Good Night';
+    }
+}
+
+function updateLocationOnClick(change) {
+    updateLocation.innerText = `${change}`;
+}
