@@ -4,8 +4,9 @@ const cityName = document.querySelector('.cityname');
 const weatherCondition = document.querySelector('.weathercondition');
 const temperature = document.querySelector('.temperature');
 const minMaxTemp = document.querySelector('.minmaxtemp')
+const updateTime = document.querySelector('.time');
 
-console.log(inputCity);
+
 const getWeatherData = () => {
     let city = inputCity.value;
     console.log(city);
@@ -34,3 +35,14 @@ const getWeatherData = () => {
 
 
 getDataBtn.addEventListener('click', getWeatherData);
+
+
+function getCurrentTime() {
+    let hours, min;
+    let date = new Date();
+    hours = date.getHours();
+    min = date.getMinutes();
+    updateTime.innerText = `${hours}:${min}`
+}
+
+setInterval(getCurrentTime, 1000);
