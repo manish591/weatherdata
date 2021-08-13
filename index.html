@@ -11,17 +11,29 @@
     <div class="container">
         <div class="searchbar">
             <p class="greeting">Good Morning</p>
-            <h1 class="time">11:37</h1>
-            <span class="ampm">PM</span>
-            <p class="location">India</p>
-            <input type="text" class="inputcity" placeholder="Enter City Name Here">
-            <button class="getdata">Get Data</button>
+            <div class="showtime">
+                <h1 class="time">11:37</h1>
+                <!-- <span class="ampm">AM</span> -->
+            </div>
+            <p class="location">In Kotdwara, India</p>
+            <div class="search">
+                <input type="text" class="inputcity" placeholder="Enter City Name Here">
+                <button class="getdata">Get Data</button>
+            </div>
         </div>
         <div class="data">
-            <p class="cityname"></p>
-            <p class="weathercondition"></p>
-            <h1 class="temperature"></h1>
-            <p class="minmaxtemp"></p>
+            <div class="key">
+                <p class="city">Selected location</p>
+                <p class="weather">Weather Conditions</p>
+                <p class="temp">Current Temperature</p>
+                <p class="minmax">Min temp/ Max temp</p>
+            </div>
+            <div class="value">
+                <p class="cityname">Punjab</p>
+                <p class="weathercondition">Cloudy</p>
+                <p class="temperature">35</p>
+                <p class="minmaxtemp">15 / 36</p>
+            </div>
         </div>
     </div>
     <script src="/weather.js"></script>

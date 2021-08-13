@@ -5,7 +5,7 @@
 }
 
 :root {
-    --bg-clr: #fff;
+    --bg-clr: #E5E9EC;
     --button-clr: #FF5D5E;
     --text-clr: #000;
 }
@@ -17,54 +17,109 @@ body {
 }
 
 .container {
-    width: 90vw;
-    margin: 10vh auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.title {
+.searchbar {
+    width: 100%;
+    height: 50vh;
+    background-image: url("https://images.unsplash.com/photo-1418489098061-ce87b5dc3aee?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bmF0dXJhbHxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 2vh;
+}
+
+.greeting, .location, .search, .showtime {
+    margin-left: 10px;
+}
+
+.greeting {
+    color: var(--bg-clr);
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+.time {
+    font-size: 5rem;
+    color: var(--bg-clr);
+}
+
+.location {
+    color: var(--bg-clr);
+    margin-top: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+span {
+    color: var(--bg-clr);
+}
+
+.showtime {
+    display: flex;
+}
+
+.search {
+    margin-top: 9vh;
 }
 
 .getdata {
-    margin-top: 3vh;
-    padding: 9px 15px;
+    padding: 8px 5px;
     background-color: var(--button-clr);
     border: none;
     box-shadow: 3px 3px 8px rgba(58, 58, 58, 0.568);
 }
 
 .inputcity {
-    height: 5vh;
     border: 1px solid var(--text-clr);
-    padding: 5px;
-}
-
-.weaterappdescription {
-    margin-bottom: 3vh;
-    width: 80%;
+    padding: 8px 5px;
 }
 
 .data {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100%;
+    min-height: 30vh;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-top: 5vh;
+    text-align: left;
 }
 
-.cityname {
+.value {
+    text-align: right;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 1.2rem;
-    margin-top: 4vh;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1.1px;
 }
 
-.weathercondition {
-    margin-top: 1vh;
+.key {
+    color: grey;
+    font-size: .9rem;
 }
 
-.temperature {
-    margin: 2vh 0;
-    font-size: 4rem;
+.key, .value {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .container {
+      width: 40vw;
+      margin: 5vh auto;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 5px 5px 10px rgba(97, 95, 95, 0.5);
+  }
+  
 }
