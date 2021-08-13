@@ -42,6 +42,14 @@ function getCurrentTime() {
     let date = new Date();
     hours = date.getHours();
     min = date.getMinutes();
+    if (hours < 10) {
+        hours = '0' + date.getHours();
+    } 
+   
+    if(min < 10) {
+        min = '0' + date.getMinutes();
+    }
+
     updateTime.innerText = `${hours}:${min}`
 }
 
