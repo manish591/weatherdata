@@ -8,7 +8,6 @@ const updateTime = document.querySelector('.time');
 const updateLocation = document.querySelector('.location');
 const greeting = document.querySelector('.greeting');
 
-
 const getWeatherData = () => {
     let city = inputCity.value;
     console.log(city);
@@ -18,6 +17,7 @@ const getWeatherData = () => {
     fetch(base)
     .then(response => response.json())
     .then(data => {
+        console.log(data)
         let place = data.name;
         let placeWeatherCondition = data.weather[0].description;
         let placeTemp = data.main.temp;
@@ -26,9 +26,9 @@ const getWeatherData = () => {
         
         cityName.innerHTML = place;
         weatherCondition.innerText = placeWeatherCondition;
-        tempInCelcius = (parseInt(placeTemp) - 273.15);
+        tempInCelcius = changeKelvinToCelcius(placeTemp);
         temperature.innerHTML = `${tempInCelcius.toFixed(2)}`
-        minMaxTemp.innerHTML = `${placeMinTemp}/${placeMaxTemp}.`;
+        minMaxTemp.innerHTML = `${(changeKelvinToCelcius(placeMinTemp)).toFixed(2)}/${(changeKelvinToCelcius(placeMaxTemp)).toFixed(2)}`;
         updateLocationOnClick(place);
     })
     .catch(error => {
@@ -39,7 +39,8 @@ const getWeatherData = () => {
 
 getDataBtn.addEventListener('click', getWeatherData);
 
-let hours, min;
+let hours = 0
+let min = 0;
 
 function getCurrentTime() {
     let date = new Date();
@@ -54,22 +55,26 @@ function getCurrentTime() {
     }
 
     updateTime.innerText = `${hours}:${min}`;
+    updateGreetingMessage(hours);
 }
 
 setInterval(getCurrentTime, 1000);
-updateGreetingMessage(hours);
-
 
 function updateGreetingMessage(hour) {
-    if (hour > 5 || hour < 12) {
+    greeting.innerText = `${hour}`
+    if (hour >= 5 && hour <= 12) {
         greeting.innerText = 'Good Morning';
-    } else if (hour > 12 || hour < 10) {
+    } else if (hour > 12 && hour <= 19) {
         greeting.innerText = 'Good Evening';
-    } else {
+    } else if (hour > 19){
         greeting.innerText = 'Good Night';
     }
 }
 
 function updateLocationOnClick(change) {
     updateLocation.innerText = `${change}`;
+}
+
+function changeKelvinToCelcius(input) {
+    return Number(input) - 273.15;
 }
