@@ -8,6 +8,8 @@ const updateTime = document.querySelector('.time');
 const updateLocation = document.querySelector('.location');
 const greeting = document.querySelector('.greeting');
 
+console.log('creating PR');
+
 const getWeatherData = () => {
     let city = inputCity.value;
     console.log(city);
